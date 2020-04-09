@@ -21,6 +21,6 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B clean install --DskipTests
+      run: mvn -B clean install -DskipTests
     - name: Test with Maven
-      run: mvn -B package
+      run: mvn -B install
