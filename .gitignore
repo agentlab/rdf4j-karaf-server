@@ -1,0 +1,17 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# production
+build
+distrib
+target
+bin
+
+# misc
+.DS_Store
+
+
+ru.agentlab.rdf4j.parent.iml
+ru.agentlab.rdf4j.cmpn.iml
+ru.agentlab.rdf4j.features.iml
+ru.agentlab.rdf4j.jaxrs.iml
+ru.agentlab.rdf4j.jaxrs.tests.iml
