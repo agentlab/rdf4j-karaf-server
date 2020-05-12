@@ -14,6 +14,7 @@
 		<module>ru.agentlab.rdf4j.cmpn</module>
 		<module>ru.agentlab.rdf4j.jaxrs</module>
 		<module>ru.agentlab.rdf4j.features</module>
+		<module>ru.agentlab.rdf4j.jaxrs.tests.helpers</module>
 		<module>ru.agentlab.rdf4j.jaxrs.tests</module>
 		<!--<module>distrib</module> -->
 	</modules>
@@ -73,7 +74,7 @@
 		<maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
 		<osgi.version>7.0.0</osgi.version>
 		<osgi.compendium.version>7.0.0</osgi.compendium.version>
-		<pax.exam.version>4.13.1</pax.exam.version>
+		<pax.exam.version>4.13.3</pax.exam.version>
 		<awaitility.version>3.1.6</awaitility.version>
 		<!-- Further used maven plugin versions; e.g. in the docs -->
 		<plugin.depends.version>1.4.0</plugin.depends.version>
@@ -366,6 +367,9 @@
 								<requireMavenVersion>
 									<version>3.6.3</version>
 								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>[11,)</version>
+								</requireJavaVersion>
 							</rules>
 						</configuration>
 					</execution>

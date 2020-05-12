@@ -35,6 +35,7 @@ import org.ops4j.pax.exam.karaf.options.KarafDistributionOption;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 
+import ru.agentlab.rdf4j.jaxrs.tests.helpers.Rdf4jJaxrsTestSupport;
 import ru.agentlab.rdf4j.repository.RepositoryManagerComponent;
 
 
@@ -183,6 +184,4 @@ public class RepositoryControllerTest extends Rdf4jJaxrsTestSupport {
 		assertEquals(200, response.getStatus());
 		client.close();
 	}
-
-    
 }

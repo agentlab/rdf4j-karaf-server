@@ -53,17 +53,18 @@
   			<artifactId>cxf-rt-rs-client</artifactId>
   			<version>${cxf.version}</version>
 		</dependency>
-		<!--<dependency>
-  			<groupId>org.apache.cxf</groupId>
-  			<artifactId>cxf-rt-transports-http-hc</artifactId>
-  			<version>${cxf.version}</version>
-		</dependency>-->
 
         <!-- Provide the KarafTestSupport -->
         <dependency>
             <groupId>org.apache.karaf.itests</groupId>
             <artifactId>common</artifactId>
             <version>${karaf.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.agentlab.rdf4j</groupId>
+            <artifactId>ru.agentlab.rdf4j.jaxrs.tests.helpers</artifactId>
+            <version>3.1.2-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <!-- Define the Apache Karaf version to download and use for the test -->
@@ -75,12 +76,6 @@
             <scope>test</scope>
             <type>tar.gz</type>
         </dependency>
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>test</scope>
-        </dependency>-->
         <!-- Required to use shell commands in the tests -->
         <dependency>
             <groupId>org.apache.karaf.shell</groupId>

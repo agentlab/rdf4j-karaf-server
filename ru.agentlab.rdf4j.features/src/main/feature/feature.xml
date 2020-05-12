@@ -148,29 +148,18 @@
     </feature>
 
 	<repository>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</repository>
-
-    <!-- Redefine Webconsole for Apache Felix HTTP  -->
-    <!--<feature name="http" version="${karaf.version}" description="Implementation of the OSGI HTTP Service">
-        <feature dependency="true">felix-http</feature>
-        <requirement>http-service</requirement>
-    </feature>-->
-    
-    <!--<feature name="http-whiteboard" version="${karaf.version}" description="Implementation of the OSGI HTTP Whiteboard Service">
-        <feature>http</feature>
-    </feature>-->
+	
+	<!-- RDF4J OSGi DS components without JAX-RS -->
+	<feature name="ru.agentlab.rdf4j" version="${project.version}">
+        <feature>org.eclipse.rdf4j</feature>
+        <feature>scr</feature>
+        <feature>karaf-scr</feature>
+        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.cmpn/${project.version}</bundle>
+    </feature>
 
     <repository>mvn:org.apache.aries.jax.rs.without.cxf/org.apache.aries.jax.rs.features/${aries.whiteboard.version}/xml</repository>
 	<!-- Fixed version from org.apache.aries.jax.rs.features-1.0.7.xml -->
     
-    <!--<feature version="${aries.whiteboard.version}" name="agentlab-aries-jax-rs-whiteboard">
-        <feature>http</feature>
-        <bundle dependency="true">mvn:org.apache.aries.spec/org.apache.aries.javax.jax.rs-api/1.0.1</bundle>
-        <bundle dependency="true">mvn:org.osgi/org.osgi.util.function/1.1.0</bundle>
-        <bundle dependency="true">mvn:org.osgi/org.osgi.util.promise/1.1.0</bundle>
-        <bundle dependency="true">mvn:org.osgi/org.osgi.service.jaxrs/1.0.0</bundle>
-        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.annotation-api-1.3/1.3_1</bundle>
-        <bundle>mvn:ru.agentlab.org.apache.aries.jax.rs/org.apache.aries.jax.rs.whiteboard/${aries.whiteboard.version}</bundle>
-    </feature>-->
     <feature version="${aries.whiteboard.version}" name="agentlab-aries-jax-rs-whiteboard-jackson">
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
@@ -206,14 +195,9 @@
         <feature>agentlab-aries-jax-rs-whiteboard-jackson</feature>
     </feature>
 
-    <feature name="ru.agentlab.rdf4j.jaxrs.deps" version="${project.version}">
-        <feature>org.eclipse.rdf4j</feature>
-        <feature>karaf-rest-all</feature>
-    </feature>
-
     <feature name="ru.agentlab.rdf4j.jaxrs" version="${project.version}">
-        <feature>ru.agentlab.rdf4j.jaxrs.deps</feature>
-        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.cmpn/${project.version}</bundle>
+        <feature>ru.agentlab.rdf4j</feature>
+        <feature>karaf-rest-all</feature>
         <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.jaxrs/${project.version}</bundle>
     </feature>
 

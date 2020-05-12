@@ -40,6 +40,7 @@ import org.ops4j.pax.exam.junit.PaxExamParameterized;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 
+import ru.agentlab.rdf4j.jaxrs.tests.helpers.Rdf4jJaxrsTestSupportBase;
 import ru.agentlab.rdf4j.repository.RepositoryManagerComponent;
 
 
@@ -50,7 +51,7 @@ import ru.agentlab.rdf4j.repository.RepositoryManagerComponent;
  */
 @RunWith(PaxExamParameterized.class)
 @ExamReactorStrategy(PerClass.class)
-public class StatementsControllerTest extends Rdf4jJaxrsTestSupport2 {
+public class StatementsControllerTest extends Rdf4jJaxrsTestSupportBase {
     @Inject
     protected RepositoryManagerComponent manager;
 

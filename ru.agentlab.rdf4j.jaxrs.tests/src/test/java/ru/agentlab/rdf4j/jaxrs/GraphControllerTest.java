@@ -38,6 +38,7 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 
+import ru.agentlab.rdf4j.jaxrs.tests.helpers.Rdf4jJaxrsTestSupport;
 import ru.agentlab.rdf4j.repository.RepositoryManagerComponent;
 
 @RunWith(PaxExam.class)
