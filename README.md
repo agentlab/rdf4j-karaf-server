@@ -10,23 +10,25 @@ Build with all tests `mvn clean install`
 
 Quick build without `mvn clean install -P quick`
 
-## Deployment in Karaf
+## Deployment into clean Karaf instance
+
+Requirements:
+* Java 11 JDK or JRE
+* Karaf 4.3.0.RC1
+
+Download and unpack Karaf into folder.
+
+### Configure
+
+Copy all config files from `<this-repository>/distrib/src/main/distribution/etc` into `<karaf-root>/etc`
 
 ### Run Karaf
 
-Requirements: Java 11 JDK or JRE
+Go into `<karaf-root>` folder
 
-Run from Karaf root floder `./bin/karaf`
+Run from Karaf root floder `./bin/karaf`. Run from Karaf root floder, not from ./bin folder! See details in https://karaf.apache.org/get-started.html
 
-Run from Karaf root floder, not from ./bin folder! See details in https://karaf.apache.org/get-started.html
-
-### Deploy rdf4j REST server to clean Karaf instance
-
-Before installation you should build server from sources! (Its due to Karaf installs all from local maven repository by default.)
-
-#### Configure
-
-Copy all config files from `<this-repository>/distrib/src/main/distribution/etc` into `<karaf-root>/etc`
+### Deploy rdf4j REST server into Karaf
 
 #### Add feature repository
 
