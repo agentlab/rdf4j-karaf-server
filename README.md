@@ -20,9 +20,13 @@ Run from Karaf root floder `./bin/karaf`
 
 Run from Karaf root floder, not from ./bin folder! See details in https://karaf.apache.org/get-started.html
 
-### Deploy rdf4j REST server to Karaf
+### Deploy rdf4j REST server to clean Karaf instance
 
 Before installation you should build server from sources! (Its due to Karaf installs all from local maven repository by default.)
+
+#### Configure
+
+Copy all config files from <this-repository>/distrib/src/main/distribution/etc into <karaf-root>/etc
 
 #### Add feature repository
 
