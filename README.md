@@ -4,6 +4,8 @@ JAX-RS OSGi HTTP Whiteboard version of RDF4J server (with Sparql Endpoint and ot
 
 ## Building from sources
 
+Requirements: Java 11 JDK, Maven 3.6
+
 Build with all tests `mvn clean install`
 
 Quick build without `mvn clean install -P quick`
@@ -12,9 +14,11 @@ Quick build without `mvn clean install -P quick`
 
 ### Run Karaf
 
-`./bin/karaf`
+Requirements: Java 11 JDK or JRE
 
-Run from root Karaf floder, not from ./bin folder! See details in https://karaf.apache.org/get-started.html
+Run from Karaf root floder `./bin/karaf`
+
+Run from Karaf root floder, not from ./bin folder! See details in https://karaf.apache.org/get-started.html
 
 ### Deploy rdf4j REST server to Karaf
 
@@ -34,9 +38,21 @@ Or you colud install sub-features one by one:
 
 * `feature:install org.eclipse.rdf4j`
 * `feature:install karaf-scr`
+* `feature:install ru.agentlab.rdf4j`
 * `feature:install karaf-rest-all`
-* `feature:install ru.agentlab.rdf4j.jaxrs.deps`
 * `feature:install ru.agentlab.rdf4j.jaxrs`
+
+#### How to check if all is working
+
+* Check if Aries Jax-RS Whiteboard is running
+  * In Web Browser go to http://localhost:8181/rdf4j-server and check if it returns page with JAX-RS Whiteboard header
+* Check REST API Send request to retrieve repositories list
+  * HTTP GET request
+  * address http://localhost:8181/rdf4j-server/repositories
+  * HTTP header `Accept: application/sparql-results+json`
+  * Check if it returns empty bindings `"bindings": []`
+
+For further REST API interface see https://rdf4j.org/documentation/reference/rest-api/
 
 ## Development
 
