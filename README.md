@@ -26,7 +26,7 @@ Before installation you should build server from sources! (Its due to Karaf inst
 
 #### Configure
 
-Copy all config files from <this-repository>/distrib/src/main/distribution/etc into <karaf-root>/etc
+Copy all config files from `<this-repository>/distrib/src/main/distribution/etc` into `<karaf-root>/etc`
 
 #### Add feature repository
 
