@@ -14,16 +14,23 @@ import javax.ws.rs.ext.Provider;
 
 import org.osgi.service.component.annotations.Component;
 
-@Component(service = { ContainerResponseFilter.class }, property = {
-		"osgi.jaxrs.extension=true" })
-@Provider
-@PreMatching
-@Priority(Priorities.AUTHENTICATION - 1)
+/**
+ * Disabled in favor of MyFeature.java
+ *
+ */
+//@Component(service = { ContainerResponseFilter.class }, property = {"osgi.jaxrs.extension=true" })
+//@Provider
+//@PreMatching
+//@Priority(Priorities.AUTHENTICATION - 1)
 public class CorsFilterJaxRs implements ContainerResponseFilter {
 	public static final String ALLOWED_METHODS = "GET, POST, PUT, DELETE, OPTIONS, HEAD";
     public final static int MAX_AGE = 42 * 60 * 60;
     public final static String DEFAULT_ALLOWED_HEADERS = "origin,accept,content-type";
     public final static String DEFAULT_EXPOSED_HEADERS = "location,info";
+    
+    public CorsFilterJaxRs() {
+        System.out.println("Start CorsFilterJaxRs");
+    }
 
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {

@@ -168,11 +168,11 @@
 		    <version>7.2.10</version>
 		    <scope>provided</scope>
 		</dependency>-->
-		<!--<dependency>
+		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-security-cors</artifactId>
 			<version>${cxf.version}</version>
-		</dependency>-->
+		</dependency>
 	</dependencies>
 
 	<build>

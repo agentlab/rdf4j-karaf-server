@@ -190,6 +190,7 @@
         <feature version="${cxf.version}">cxf-jaxrs</feature>
         <feature version="${cxf.version}">cxf-databinding-jaxb</feature>
         <feature version="${cxf.version}">cxf-sse</feature>
+        <feature version="${cxf.version}">cxf-rs-security-cors</feature>
 
         <feature version="${aries.whiteboard.version}">aries-jax-rs-whiteboard-without-cxf</feature>
         <feature>agentlab-aries-jax-rs-whiteboard-jackson</feature>
