@@ -94,13 +94,14 @@ public class RepositoryControllerTest extends Rdf4jJaxrsTestSupport {
 
 		// We do a simple SPARQL SELECT-query that retrieves all resources of type `ex:Artist`,
 		// and their first names.
-		String queryString = "PREFIX ex: <http://example.org/> \n";
-		queryString += "PREFIX foaf: <" + FOAF.NAMESPACE + "> \n";
-		queryString += "SELECT ?s ?n \n";
-		queryString += "WHERE { \n";
-		queryString += "    ?s a ex:Artist; \n";
-		queryString += "       foaf:firstName ?n .";
-		queryString += "}";
+		String queryString = String.join("\n",
+		    "PREFIX ex: <http://example.org/>",
+		    "PREFIX foaf: <" + FOAF.NAMESPACE + ">",
+		    "SELECT ?s ?n",
+		    "WHERE {",
+		    "  ?s a ex:Artist ;",
+		    "    foaf:firstName ?n .",
+		    "}");
 		TupleQuery query = conn.prepareTupleQuery(queryString);
 		// A QueryResult is also an AutoCloseable resource, so make sure it gets closed when done.
 		try (TupleQueryResult result = query.evaluate()) {
