@@ -2,6 +2,10 @@
 
 <features name="ru.agentlab.rdf4j-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
+    <feature name="pax-logging-log4j2-extra" version="${pax.logging.version}">
+        <bundle start-level="8">mvn:org.ops4j.pax.logging/pax-logging-log4j2-extra/${pax.logging.version}</bundle>
+    </feature>
+
     <feature name="org.eclipse.rdf4j" version="${rdf4j.osgi.version}">
         <feature prerequisite="true" dependency="false">wrap</feature>
 
@@ -88,8 +92,8 @@
         <bundle dependency="true">mvn:org.slf4j/jcl-over-slf4j/${slf4j.version}</bundle>
         <bundle dependency="true">mvn:org.slf4j/log4j-over-slf4j/${slf4j.version}</bundle>
         <bundle dependency="true">mvn:org.slf4j/slf4j-simple/${slf4j.version}</bundle>-->
-        <bundle dependency="true">mvn:ch.qos.logback/logback-core/${logback.version}</bundle>
-        <bundle dependency="true">mvn:ch.qos.logback/logback-classic/${logback.version}</bundle>
+        <!--<bundle dependency="true">mvn:ch.qos.logback/logback-core/${logback.version}</bundle>
+        <bundle dependency="true">mvn:ch.qos.logback/logback-classic/${logback.version}</bundle>-->
 
         <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java/${jsonldjava.version}</bundle>
         <bundle dependency="true">mvn:org.mapdb/mapdb/${mapdb.version}</bundle>

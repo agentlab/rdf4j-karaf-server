@@ -9,6 +9,7 @@ bin
 # misc
 .DS_Store
 
+publish.bat
 
 ru.agentlab.rdf4j.parent.iml
 ru.agentlab.rdf4j.cmpn.iml

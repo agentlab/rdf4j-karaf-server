@@ -48,6 +48,8 @@ Or you colud install sub-features one by one:
 * `feature:install karaf-rest-all`
 * `feature:install ru.agentlab.rdf4j.jaxrs`
 
+In case you need log4j2 JSON logger, install feature `feature:install pax-logging-log4j2-extra`
+
 #### How to check if all is working
 
 * Check if Aries Jax-RS Whiteboard is running
