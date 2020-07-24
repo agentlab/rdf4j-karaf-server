@@ -128,7 +128,7 @@ public class StatementsController {
 	@Path("/repositories/{repId}/statements")
 	public void addStatements(@Context HttpServletRequest request,
 			@PathParam("repId") String repId) throws RepositoryException, IOException, HTTPException {
-		logger.info("POST data to repository");
+		logger.info("POST to Statements service");
 		//logger.info("repId={}, queryLn={}, baseURI={}, infer={}, timeout={}, distinct={}, limit={}, offset={}", repId, queryLnStr, includeInferred, maxQueryTime);
 		
 		Repository repository = repositoryManager.getRepository(repId);
@@ -312,18 +312,14 @@ public class StatementsController {
 			throw new WebApplicationException("update execution took too long", SERVICE_UNAVAILABLE);
 		} catch (UpdateExecutionException e) {
 			if (e.getCause() != null && e.getCause() instanceof HTTPException) {
-				// custom signal from the backend, throw as HTTPException
-				// directly
-				// (see SES-1016).
+				// custom signal from the backend, throw as HTTPException directly (see SES-1016)
 				throw (HTTPException) e.getCause();
 			} else {
 				throw new WebApplicationException("Repository update error: " + e.getMessage(), e, INTERNAL_SERVER_ERROR);
 			}
 		} catch (RepositoryException e) {
 			if (e.getCause() != null && e.getCause() instanceof HTTPException) {
-				// custom signal from the backend, throw as HTTPException
-				// directly
-				// (see SES-1016).
+				// custom signal from the backend, throw as HTTPException directly (see SES-1016)
 				throw (HTTPException) e.getCause();
 			} else {
 				throw new WebApplicationException("Repository update error: " + e.getMessage(), e, INTERNAL_SERVER_ERROR);
@@ -368,9 +364,7 @@ public class StatementsController {
             throw new WebApplicationException("Failed to read data: " + e.getMessage(), e, BAD_REQUEST);
         } catch (RepositoryException e) {
             if (e.getCause() != null && e.getCause() instanceof HTTPException) {
-                // custom signal from the backend, throw as HTTPException
-                // directly
-                // (see SES-1016).
+                // custom signal from the backend, throw as HTTPException directly (see SES-1016)
                 throw (HTTPException) e.getCause();
             } else {
                 throw new WebApplicationException("Repository update error: " + e.getMessage(), e, BAD_REQUEST);
@@ -404,16 +398,13 @@ public class StatementsController {
 		InputStream in = request.getInputStream();
 		try (RepositoryConnection repositoryCon = ProtocolUtils.getRepositoryConnection(repository)) {
 			repositoryCon.begin();
-
 			if (preserveNodeIds) {
 				repositoryCon.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 			}
-
 			if (replaceCurrent) {
 				repositoryCon.clear(contexts);
 			}
 			repositoryCon.add(in, baseURI.toString(), rdfFormat, contexts);
-
 			repositoryCon.commit();
 		} catch (UnsupportedRDFormatException e) {
 			throw new WebApplicationException("No RDF parser available for format " + rdfFormat.getName(),
@@ -425,9 +416,7 @@ public class StatementsController {
 			throw new WebApplicationException("Failed to read data: " + e.getMessage(), e, INTERNAL_SERVER_ERROR);
 		} catch (RepositoryException e) {
 			if (e.getCause() != null && e.getCause() instanceof HTTPException) {
-				// custom signal from the backend, throw as HTTPException
-				// directly
-				// (see SES-1016).
+				// custom signal from the backend, throw as HTTPException directly (see SES-1016)
 				throw (HTTPException) e.getCause();
 			} else {
 				throw new WebApplicationException("Repository update error: " + e.getMessage(), e, INTERNAL_SERVER_ERROR);
@@ -460,9 +449,7 @@ public class StatementsController {
             repositoryCon.remove(subj, pred, obj, contexts);
         } catch (RepositoryException e) {
             if (e.getCause() != null && e.getCause() instanceof HTTPException) {
-                // custom signal from the backend, throw as HTTPException
-                // directly
-                // (see SES-1016).
+                // custom signal from the backend, throw as HTTPException directly (see SES-1016)
                 throw (HTTPException) e.getCause();
             } else {
                 throw new WebApplicationException("Repository update error: " + e.getMessage(), e);

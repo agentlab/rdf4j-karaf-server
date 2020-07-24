@@ -47,7 +47,7 @@ public class RepositoryListController {
             requestURL.append('/');
         }
         String namespace = "https://agentlab.ru/rdf4j-server/repositories/";//requestURL.toString();
-        System.out.println("namespace=" + namespace);
+        //System.out.println("namespace=" + namespace);
         
         TupleQueryResult queryResult = null;
 

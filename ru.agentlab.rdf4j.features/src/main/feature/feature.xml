@@ -3,6 +3,7 @@
 <features name="ru.agentlab.rdf4j-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
     <feature name="pax-logging-log4j2-extra" version="${pax.logging.version}">
+    	<feature dependency="true">jackson-core</feature>
         <bundle start-level="8">mvn:org.ops4j.pax.logging/pax-logging-log4j2-extra/${pax.logging.version}</bundle>
     </feature>
 
@@ -66,10 +67,8 @@
         <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-spin/${rdf4j.osgi.version}</bundle> -->
 
         <!--<bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-config/${rdf4j.osgi.version}</bundle>-->
-
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
+        
+        <feature dependency="true">jackson-core</feature>
 
         <bundle dependency="true">mvn:commons-cli/commons-cli/${commons.cli.version}</bundle>
         <bundle dependency="true">mvn:commons-fileupload/commons-fileupload/${commons.fileupload.version}</bundle>
@@ -164,10 +163,14 @@
     <repository>mvn:org.apache.aries.jax.rs.without.cxf/org.apache.aries.jax.rs.features/${aries.whiteboard.version}/xml</repository>
 	<!-- Fixed version from org.apache.aries.jax.rs.features-1.0.7.xml -->
     
+    <feature version="${jackson.version}" name="jackson-core">
+    	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
+    	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
+    	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
+    </feature>
+    
     <feature version="${aries.whiteboard.version}" name="agentlab-aries-jax-rs-whiteboard-jackson">
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
+    	<feature>jackson-core</feature>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${jackson.version}</bundle>

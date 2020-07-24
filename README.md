@@ -52,6 +52,8 @@ In case you need log4j2 JSON logger, install feature `feature:install pax-loggin
 
 #### How to check if all is working
 
+* If Karaf did not start properly, check that JAVA_HOME points to JDK 11 folder. JDK 13-14 is not supported yet https://issues.apache.org/jira/browse/KARAF-6624
+
 * Check if Aries Jax-RS Whiteboard is running
   * In Web Browser go to http://localhost:8181/rdf4j-server and check if it returns page with JAX-RS Whiteboard header
 * Check REST API Send request to retrieve repositories list
