@@ -32,7 +32,7 @@ Run from Karaf root floder `./bin/karaf`. Run from Karaf root floder, not from .
 
 #### Add feature repository
 
-* `feature:repo-add mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.features/3.1.2-SNAPSHOT/xml`
+* `feature:repo-add mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.features/3.1.2-SNAPSHOT/xml/features`
 
 #### Install karaf features and activate OSGi bundles
 
