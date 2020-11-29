@@ -8,8 +8,7 @@
 	<parent>
 		<groupId>ru.agentlab.rdf4j</groupId>
 		<artifactId>ru.agentlab.rdf4j.parent</artifactId>
-		<version>3.4.3-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+		<version>4.0.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>ru.agentlab.rdf4j.jaxrs.tests.helpers</artifactId>
@@ -55,7 +54,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- Required to use shell commands in the tests -->
@@ -114,7 +113,7 @@
 		</dependency>-->
 		<dependency>
 			<groupId>org.eclipse.rdf4j</groupId>
-			<artifactId>rdf4j-runtime-osgi-agentlab</artifactId>
+			<artifactId>rdf4j-runtime-osgi</artifactId>
 			<version>${rdf4j.osgi.version}</version>
 			<exclusions>
 				<exclusion>
