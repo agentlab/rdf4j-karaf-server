@@ -14,7 +14,7 @@ Quick build without `mvn clean install -P quick`
 
 Requirements:
 * Java 11 JDK or JRE
-* Karaf 4.3.0.RC1
+* Karaf 4.3.0
 
 Download and unpack Karaf into folder.
 
@@ -32,13 +32,13 @@ Run from Karaf root floder `./bin/karaf`. Run from Karaf root floder, not from .
 
 #### Add feature repository
 
-* `feature:repo-add mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.features/3.1.2-SNAPSHOT/xml/features`
+* `feature:repo-add mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.features/4.0.0-SNAPSHOT/xml/features`
 
 #### Install karaf features and activate OSGi bundles
 
 Install main feature (installs all sub-features):
 
-* `feature:install ru.agentlab.rdf4j.jaxrs`
+* `feature:install rdf4j-spring`
 
 Or you colud install sub-features one by one:
 
@@ -46,7 +46,7 @@ Or you colud install sub-features one by one:
 * `feature:install karaf-scr`
 * `feature:install ru.agentlab.rdf4j`
 * `feature:install karaf-rest-all`
-* `feature:install ru.agentlab.rdf4j.jaxrs`
+* `feature:install rdf4j-spring`
 
 In case you need log4j2 JSON logger, install feature `feature:install pax-logging-log4j2-extra`
 
@@ -80,15 +80,18 @@ When you run single testclass from single module Maven did not recompile whole p
 
 `mvn clean install -P quick`
 
-* Run single OSGi test class (integration tests)
-  * without debugger
-    * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
-  * with debugger (on port 5005)
-    * edit Rdf4jJaxrsTestSupport.java, uncomment line with code "KarafDistributionOption.debugConfiguration("5005", true)"
-    * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
-* Run single unit test class (i.e. non OSGi) or debug Pax-Exam internals for particular OSGi test class
-  * without debugger
-    * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
-  * with debugger (on port 5005)
-    * should not edit Rdf4jJaxrsTestSupport.java
-    * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest "-Dmaven.surefire.debug"`
+#### Run single OSGi test class (integration tests)
+
+* without debugger
+  * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
+* with debugger (on port 5005)
+  * edit Rdf4jJaxrsTestSupport.java, uncomment line with code "KarafDistributionOption.debugConfiguration("5005", true)"
+  * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
+
+#### Run single unit test class (i.e. non OSGi) or debug Pax-Exam internals for particular OSGi test class
+
+* without debugger
+  * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest`
+* with debugger (on port 5005)
+  * should not edit Rdf4jJaxrsTestSupport.java
+  * `mvn clean test -pl ru.agentlab.rdf4j.jaxrs.tests -Dtest=StatementsControllerTest "-Dmaven.surefire.debug"`

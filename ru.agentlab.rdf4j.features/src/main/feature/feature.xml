@@ -9,64 +9,21 @@
 
     <feature name="org.eclipse.rdf4j" version="${rdf4j.osgi.version}">
         <feature prerequisite="true" dependency="false">wrap</feature>
-
-        <bundle dependency="true">mvn:org.eclipse.rdf4j/rdf4j-runtime-osgi-agentlab/${rdf4j.osgi.version}</bundle>
-
-<!--         <bundle dependency="true">mvn:org.eclipse.rdf4j/rdf4j-client/${rdf4j.osgi.version}</bundle> -->
-        <!--<bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-http-client/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-http-protocol/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-model/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-query/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryalgebra-model/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryparser-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryparser-serql/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryparser-sparql/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryrender/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryresultio-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryresultio-binary/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryresultio-sparqljson/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryresultio-sparqlxml/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryresultio-text/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-contextaware/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-event/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-http/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-manager/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-sparql/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-binary/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-datatypes/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-jsonld/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-languages/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-n3/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-nquads/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-ntriples/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-rdfjson/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-rdfxml/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-trig/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-trix/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-turtle/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-util/${rdf4j.osgi.version}</bundle>-->
-
-        <!--<bundle dependency="true">mvn:org.eclipse.rdf4j/rdf4j-storage/${rdf4j.osgi.version}</bundle>-->
-<!--         <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-queryalgebra-evaluation/${rdf4j.osgi.version}/$Bundle-SymbolicName=rdf4j-queryalgebra-evaluation</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-federation/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-inferencer/${rdf4j.osgi.version}</bundle> -->
-        <!--<bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-lucene/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-lucene-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-lucene-spin/${rdf4j.osgi.version}</bundle>-->
-<!--         <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-memory/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-nativerdf/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-dataset/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-repository-sail/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-api/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-base/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-model/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-sail-spin/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-shacl/${rdf4j.osgi.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-spin/${rdf4j.osgi.version}</bundle> -->
-
-        <!--<bundle dependency="true">wrap:mvn:org.eclipse.rdf4j/rdf4j-config/${rdf4j.osgi.version}</bundle>-->
+        
+        <!-- надо перевести на pax-logging -->
+        <bundle dependency="true">mvn:org.slf4j/slf4j-api/${slf4j.version}</bundle>
+        <!--<bundle dependency="true">mvn:org.slf4j/slf4j-jdk14/${slf4j.version}</bundle>-->
+        <bundle dependency="true">mvn:org.slf4j/jcl-over-slf4j/${slf4j.version}</bundle>
+        <bundle dependency="true">mvn:org.slf4j/log4j-over-slf4j/${slf4j.version}</bundle>
+        <bundle dependency="true">mvn:org.slf4j/slf4j-simple/${slf4j.version}</bundle>
+        <bundle dependency="true">mvn:ch.qos.logback/logback-classic/1.1.11</bundle>
+		<bundle dependency="true">mvn:ch.qos.logback/logback-core/1.1.11</bundle>
+		
+		<!-- надо бы удалить и перевести на pax-logging, но новый pax-logging не экспортит log4j.core -->
+		<bundle dependency="true">mvn:org.apache.logging.log4j/log4j-core/2.8.2</bundle>
+		
+		
+        <bundle dependency="true">mvn:org.eclipse.rdf4j/rdf4j-runtime-osgi/${rdf4j.osgi.version}</bundle>
         
         <feature dependency="true">jackson-core</feature>
 
@@ -84,22 +41,11 @@
         <bundle dependency="true">mvn:org.locationtech.jts/jts-core/${jts.core.version}</bundle>
 
         <bundle dependency="true">mvn:com.google.guava/guava/${guava.version}</bundle>
-        <!--<bundle dependency="true">mvn:com.google.guava/guava/26.0-jre</bundle>-->
-
-        <!--<bundle dependency="true">mvn:org.slf4j/slf4j-api/${slf4j.version}</bundle>
-        <bundle dependency="true">mvn:org.slf4j/slf4j-jdk14/${slf4j.version}</bundle>
-        <bundle dependency="true">mvn:org.slf4j/jcl-over-slf4j/${slf4j.version}</bundle>
-        <bundle dependency="true">mvn:org.slf4j/log4j-over-slf4j/${slf4j.version}</bundle>
-        <bundle dependency="true">mvn:org.slf4j/slf4j-simple/${slf4j.version}</bundle>-->
-        <!--<bundle dependency="true">mvn:ch.qos.logback/logback-core/${logback.version}</bundle>
-        <bundle dependency="true">mvn:ch.qos.logback/logback-classic/${logback.version}</bundle>-->
+        <bundle dependency="true">mvn:com.google.guava/failureaccess/1.0.1</bundle>
 
         <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java/${jsonldjava.version}</bundle>
         <bundle dependency="true">mvn:org.mapdb/mapdb/${mapdb.version}</bundle>
         <bundle dependency="true">mvn:javax.xml.bind/jaxb-api/2.3.0</bundle>
-        <!--<bundle dependency="true">mvn:jakarta.xml.bind/jakarta.xml.bind-api/${jaxb.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.glassfish.jaxb/jaxb-runtime/${jaxb.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.glassfish.jaxb/txw2/${jaxb.version}</bundle>-->
 
         <bundle dependency="true">mvn:com.opencsv/opencsv/${opencsv.version}</bundle>
 
@@ -107,47 +53,76 @@
         <bundle dependency="true">mvn:commons-collections/commons-collections/${commons-collections.version}</bundle>
         <bundle dependency="true">mvn:org.apache.commons/commons-collections4/${commons-collections4.version}</bundle>
 
-        <!--<bundle dependency="true">mvn:org.yaml/snakeyaml/1.18</bundle>-->
         <bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.datatype/jackson-datatype-jdk8/${jackson.version}</bundle>
+        
+        <!-- from CODA -->
+		<bundle dependency="true">wrap:mvn:io.sgr/s2-geometry-library-java/1.0.1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-analyzers-common/${lucene.version}_1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene/${lucene.version}_1</bundle> <!-- 6.6.1 -->
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queries/${lucene.version}_1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queryparser/${lucene.version}_1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-sandbox/${lucene.version}_1</bundle>
+		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial3d/${lucene.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial/${lucene.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial-extras/${lucene.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-suggest/${lucene.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.apache.solr/solr-solrj/${solr.version}</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.elasticsearch/${elasticsearch.version}_2</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.elasticsearch-client/${elasticsearch.version}_1</bundle>
+		<bundle dependency="true">wrap:mvn:org.elasticsearch.client/transport/${elasticsearch.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/reindex-client/${elasticsearch.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/lang-mustache-client/${elasticsearch.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/percolator-client/${elasticsearch.version}</bundle>
+		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/parent-join-client/${elasticsearch.version}</bundle>
 
-        <!--<bundle dependency="true">mvn:org.locationtech.jts/jts-core/1.15.1</bundle>
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-analyzers-common/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-backward-codecs/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-core/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-grouping/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-highlighter/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-join/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-memory/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-misc/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-queries/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-queryparser/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-sandbox/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial3d/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-suggest/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.apache.solr/solr-solrj/6.6.1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch/elasticsearch/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.client/transport/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.client/elasticsearch-rest-client/5.6.9</bundle>	 -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch/jna/4.4.0-1</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/transport-netty3-client/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/transport-netty4-client/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/reindex-client/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/lang-mustache-client/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/percolator-client/5.6.9</bundle> -->
+<!-- 		<bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/parent-join-client/5.6.9</bundle> -->
 
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-analyzers-common/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-backward-codecs/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-core/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-grouping/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-highlighter/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-join/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-memory/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-misc/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-queries/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-queryparser/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-sandbox/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial3d/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-spatial/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.lucene/lucene-suggest/${lucene.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.apache.solr/solr-solrj/${solr.version}</bundle>-->
 
-        <!--<bundle dependency="true">wrap:mvn:org.elasticsearch/elasticsearch/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.client/transport/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.client/elasticsearch-rest-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch/jna/4.5.1</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/delete-by-query/2.4.6</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/lang-mustache-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/parent-join-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/percolator-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/rank-eval-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/reindex-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">wrap:mvn:org.elasticsearch.plugin/transport-netty4-client/${elasticsearch.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-buffer/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-codec/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-codec-http/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-common/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-handler/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-resolver/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-transport/${netty.version}</bundle>
-        <bundle dependency="true">wrap:mvn:com.github.spullara.mustache.java/compiler/0.9.3</bundle>-->
+		<bundle dependency="true">wrap:mvn:org.elasticsearch/securesm/1.2</bundle><!-- WTF -->
+		<bundle dependency="true">wrap:mvn:com.tdunning/t-digest/3.0</bundle><!-- WTF -->
+		<bundle dependency="true">mvn:org.hdrhistogram/HdrHistogram/2.1.9</bundle><!-- WTF -->
+		<!--<bundle dependency="true">mvn:io.netty/netty/${netty.version}</bundle>-->
+		<bundle dependency="true">wrap:mvn:com.vividsolutions/jts/1.13</bundle><!-- WTF -->
+		<bundle dependency="true">mvn:io.netty/netty-buffer/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-codec/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-codec-http/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-common/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-handler/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-resolver/${netty.version}</bundle>
+		<bundle dependency="true">mvn:io.netty/netty-transport/${netty.version}</bundle>
+		<bundle dependency="true">wrap:mvn:com.github.spullara.mustache.java/compiler/0.9.3</bundle><!-- WTF -->
+		
+		<!-- Support for Elastic Search -->
+		<bundle dependency="true">wrap:mvn:org.noggit/noggit/0.8</bundle><!-- WTF -->
+		<bundle dependency="true">mvn:org.yaml/snakeyaml/1.26</bundle>
+		<bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-smile/${jackson.version}</bundle>
+		<bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/${jackson.version}</bundle>
+		<bundle dependency="true">mvn:com.ning/compress-lzf/1.0.4</bundle><!-- WTF -->
     </feature>
 
 	<repository>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</repository>
@@ -155,13 +130,8 @@
 	<!-- RDF4J OSGi DS components without JAX-RS -->
 	<feature name="ru.agentlab.rdf4j" version="${project.version}">
         <feature>org.eclipse.rdf4j</feature>
-        <feature>scr</feature>
-        <feature>karaf-scr</feature>
-        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.cmpn/${project.version}</bundle>
+    	<feature>karaf-scr</feature>
     </feature>
-
-    <repository>mvn:org.apache.aries.jax.rs.without.cxf/org.apache.aries.jax.rs.features/${aries.whiteboard.version}/xml</repository>
-	<!-- Fixed version from org.apache.aries.jax.rs.features-1.0.7.xml -->
     
     <feature version="${jackson.version}" name="jackson-core">
     	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
@@ -169,45 +139,41 @@
     	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
     </feature>
     
-    <feature version="${aries.whiteboard.version}" name="agentlab-aries-jax-rs-whiteboard-jackson">
-    	<feature>jackson-core</feature>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${jackson.version}</bundle>
-        <bundle>mvn:org.apache.aries.jax.rs/org.apache.aries.jax.rs.jackson/1.0.2</bundle>
-    </feature>
-    <!-- End of Fixed version from org.apache.aries.jax.rs.features-1.0.5.xml -->
-
     <feature name="karaf-scr" version="${project.version}">
     	<feature>obr</feature>
     	<feature>scr</feature>
     	<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_3</bundle>
     </feature>
 
-	<repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
-	
-    <feature name="karaf-rest-all" version="${project.version}">
-    	<feature>karaf-scr</feature>
-
-        <feature>http-whiteboard</feature>
-        <requirement>osgi.service;effective:=active;filter:=(objectClass=org.osgi.service.http.HttpService)</requirement>
-
-        <!-- <feature prerequisite="true" dependency="false">webconsole</feature> -->
-
-        <feature version="${cxf.version}">cxf-jaxrs</feature>
-        <feature version="${cxf.version}">cxf-databinding-jaxb</feature>
-        <feature version="${cxf.version}">cxf-sse</feature>
-        <feature version="${cxf.version}">cxf-rs-security-cors</feature>
-
-        <feature version="${aries.whiteboard.version}">aries-jax-rs-whiteboard-without-cxf</feature>
-        <feature>agentlab-aries-jax-rs-whiteboard-jackson</feature>
-    </feature>
-
-    <feature name="ru.agentlab.rdf4j.jaxrs" version="${project.version}">
+	<!--<repository>mvn:org.apache.karaf.features/spring-legacy/${karaf.version}/xml/features</repository>-->	
+	<feature name="rdf4j-spring" version="${project.version}">
         <feature>ru.agentlab.rdf4j</feature>
-        <feature>karaf-rest-all</feature>
-        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.jaxrs/${project.version}</bundle>
+        
+        <feature prerequisite="true" dependency="false">pax-web-http-whiteboard</feature>
+    	<!-- Web-Console -->
+		<feature prerequisite="true" dependency="false">webconsole</feature>
+		<feature prerequisite="true" dependency="false">war</feature>
+		
+        <feature version="${spring.version}" dependency="false">spring-web</feature>
+        <feature version="${spring.version}" dependency="false">spring-tx</feature>
+        <feature version="${spring.version}" dependency="false">spring-aspects</feature>
+        <feature version="${spring.version}" dependency="false">spring-instrument</feature>
+        <!--<feature prerequisite="true" dependency="false">blueprint-web</feature>-->
+        <feature prerequisite="true" dependency="false">aries-blueprint-spring</feature>
+        <!--<bundle dependency="true">mvn:ch.sourcepond.spring/spring-web-blueprint/0.4.1</bundle>-->
+		
+		<!--<feature version="[4,5)">aries-blueprint</feature>
+		
+		<feature prerequisite="true" dependency="false">pax-war</feature>
+		
+		<feature version="[3.1,4)" dependency="true">spring</feature>
+		<feature version="[3.1,4)" dependency="true">spring-web</feature>
+		<feature version="[3.1,4)" dependency="true">spring-tx</feature>
+		<feature version="[1.2.1,2)" dependency="true">spring-dm</feature>
+		<feature version="[1.2.1,2)" dependency="true">spring-dm-web</feature>-->
+        
+        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.server/${project.version}</bundle>
+        <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.sail.shacl/${project.version}</bundle>
     </feature>
-
 </features>
 

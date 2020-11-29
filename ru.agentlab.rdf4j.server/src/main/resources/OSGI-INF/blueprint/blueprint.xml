@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:bn="http://www.springframework.org/schema/beans"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xsi:schemaLocation="
+			http://www.osgi.org/xmlns/blueprint/v1.0.0
+			http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+			http://www.springframework.org/schema/beans
+			https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+			http://www.springframework.org/schema/aop
+			https://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+			http://www.springframework.org/schema/mvc
+			https://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	<!-- RESOURCES -->
+	<bn:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<bn:property name="basenames">
+			<bn:list>
+				<bn:value>org.eclipse.rdf4j.http.server.messages</bn:value>
+				<bn:value>org.eclipse.rdf4j.common.webapp.system.messages</bn:value>
+				<bn:value>org.eclipse.rdf4j.common.webapp.messages</bn:value>
+			</bn:list>
+		</bn:property>
+	</bn:bean>
+	<bn:bean id="commonAppConfig" class="ru.agentlab.rdf4j.server.AppConfiguration" init-method="init" destroy-method="destroy">
+		<bn:property name="applicationId" value="Server"/>
+		<bn:property name="longName" value="RDF4J Server"/>
+		<!--  'version' property no longer declared here, but read at runtime from META-INF maven properties -->
+	</bn:bean>
+	<!-- <bn:bean id="commonWebappNavigation" class="org.eclipse.rdf4j.common.webapp.navigation.NavigationModel">
+		<bn:property name="navigationModels">
+			<bn:list>
+				<bn:value>/ru/agentlab/rdf4j/http/server/navigation.xml</bn:value>
+				<bn:value>/org/eclipse/rdf4j/common/webapp/system/navigation.xml</bn:value>
+				<bn:value>/org/eclipse/rdf4j/common/webapp/navigation.xml</bn:value>
+			</bn:list>
+		</bn:property>
+	</bn:bean> -->
+	<bn:bean id="rdf4jRepositoryManager" class="org.eclipse.rdf4j.repository.manager.LocalRepositoryManager" init-method="initialize" destroy-method="shutDown" scope="singleton">
+		<bn:constructor-arg >
+			<bn:bean factory-bean="commonAppConfig" factory-method="getDataDir"/>
+		</bn:constructor-arg >
+	</bn:bean>
+	<!-- INTERCEPTORS -->
+	<bn:bean id="rdf4jRepositoryInterceptor" class="org.eclipse.rdf4j.http.server.repository.RepositoryInterceptor">
+	<!--  scope="request" -->
+		<bn:property name="repositoryManager" ref="rdf4jRepositoryManager"/>
+		<aop:scoped-proxy/>
+	</bn:bean>
+	<!-- MAPPINGS -->
+	<bn:bean id="rdf4jProtocolUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<bn:property name="order" value="0"/>
+		<bn:property name="alwaysUseFullPath" value="true"/>
+		<bn:property name="mappings">
+			<bn:props>
+				<bn:prop key="/protocol">rdf4jProtocolController</bn:prop>
+			</bn:props>
+		</bn:property>
+		<bn:property name="interceptors">
+			<bn:list>
+				<bn:bean class="org.eclipse.rdf4j.http.server.protocol.ProtocolInterceptor"/>
+			</bn:list>
+		</bn:property>
+	</bn:bean>
+	<bn:bean id="rdf4jRepositoryListUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<bn:property name="order" value="1"/>
+		<bn:property name="alwaysUseFullPath" value="true"/>
+		<bn:property name="mappings">
+			<bn:props>
+				<bn:prop key="/repositories">rdf4jRepositoryListController</bn:prop>
+			</bn:props>
+		</bn:property>
+	</bn:bean>
+	<bn:bean id="rdf4jRepositoryUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<bn:property name="order" value="2"/>
+		<bn:property name="alwaysUseFullPath" value="true"/>
+		<bn:property name="mappings">
+			<bn:props>
+				<bn:prop key="/repositories/*/namespaces/*">rdf4jRepositoryNamespaceController</bn:prop>
+				<bn:prop key="/repositories/*/namespaces">rdf4jRepositoryNamespacesController</bn:prop>
+				<bn:prop key="/repositories/*/config">rdf4jRepositoryConfigController</bn:prop>
+				<bn:prop key="/repositories/*/contexts">rdf4jRepositoryContextsController</bn:prop>
+				<bn:prop key="/repositories/*/statements">rdf4jRepositoryStatementsController</bn:prop>
+				<bn:prop key="/repositories/*/rdf-graphs">rdf4jRepositoryContextsController</bn:prop>
+				<bn:prop key="/repositories/*/rdf-graphs/*">rdf4jRepositoryGraphController</bn:prop>
+				<bn:prop key="/repositories/*/size">rdf4jRepositorySizeController</bn:prop>
+				<bn:prop key="/repositories/*/transactions">rdf4jRepositoryTransactionStartController</bn:prop>
+				<bn:prop key="/repositories/*/transactions/*">rdf4jRepositoryTransactionController</bn:prop>
+				<bn:prop key="/repositories/*">rdf4jRepositoryController</bn:prop>
+			</bn:props>
+		</bn:property>
+		<bn:property name="interceptors">
+			<bn:list>
+				<bn:ref bean="rdf4jRepositoryInterceptor"/>
+			</bn:list>
+		</bn:property>
+	</bn:bean>	
+ 	<!--<bn:bean id="rdf4jServerHomeUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<bn:property name="order" value="3"/>
+		<bn:property name="alwaysUseFullPath" value="true"/>
+		<bn:property name="mappings">
+			<bn:props>
+				<bn:prop key="/overview.view">filenameViewController</bn:prop>
+				<bn:prop key="/home/overview.view">filenameViewController</bn:prop>
+			</bn:props>
+		</bn:property>
+		<bn:property name="interceptors">
+			<bn:list>
+				<bn:ref bean="commonWebappCommonValuesInserter"/>
+				<bn:ref bean="commonWebappNavigationInserter"/>
+			</bn:list>
+		</bn:property>
+	</bn:bean>-->
+	<!-- EXCEPTION RESOLVERS -->
+	<bn:bean id="rdf4jHandlerExceptionResolver" class="org.eclipse.rdf4j.http.server.ProtocolExceptionResolver"/>
+	<!-- CONTROLLERS -->
+	<bn:bean id="rdf4jProtocolController" class="org.eclipse.rdf4j.http.server.protocol.ProtocolController"/>
+	<bn:bean id="rdf4jRepositoryListController" class="org.eclipse.rdf4j.http.server.repository.RepositoryListController">
+		<bn:property name="repositoryManager" ref="rdf4jRepositoryManager"/>
+	</bn:bean>
+	<bn:bean id="rdf4jRepositoryController" class="org.eclipse.rdf4j.http.server.repository.RepositoryController">
+		<bn:property name="repositoryManager" ref="rdf4jRepositoryManager"/>
+	</bn:bean>
+	<bn:bean id="rdf4jRepositoryConfigController" class="org.eclipse.rdf4j.http.server.repository.config.ConfigController">
+		<bn:property name="repositoryManager" ref="rdf4jRepositoryManager"/>
+	</bn:bean>
+	<bn:bean id="rdf4jRepositoryContextsController" class="org.eclipse.rdf4j.http.server.repository.contexts.ContextsController"/>
+	<bn:bean id="rdf4jRepositoryNamespacesController" class="org.eclipse.rdf4j.http.server.repository.namespaces.NamespacesController"/>
+	<bn:bean id="rdf4jRepositoryNamespaceController" class="org.eclipse.rdf4j.http.server.repository.namespaces.NamespaceController"/>
+	<bn:bean id="rdf4jRepositorySizeController" class="org.eclipse.rdf4j.http.server.repository.size.SizeController"/>
+	<bn:bean id="rdf4jRepositoryStatementsController" class="org.eclipse.rdf4j.http.server.repository.statements.StatementsController"/>
+	<bn:bean id="rdf4jRepositoryGraphController" class="org.eclipse.rdf4j.http.server.repository.graph.GraphController"/>
+	<bn:bean id="rdf4jRepositoryTransactionController" class="org.eclipse.rdf4j.http.server.repository.transaction.TransactionController"/>
+	<bn:bean id="rdf4jRepositoryTransactionStartController" class="org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController"/>
+</blueprint>

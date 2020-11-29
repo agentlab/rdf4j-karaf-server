@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ru.agentlab.rdf4j</groupId>
+		<artifactId>ru.agentlab.rdf4j.parent</artifactId>
+		<version>4.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>ru.agentlab.rdf4j.server</artifactId>
+	<packaging>bundle</packaging>
+
+	<name>Agentlab RDF4J Server</name>
+	<description>Agentlab RDF4J REST Server with Spring, Blueprint, OSGi DS Services</description>
+
+	<dependencies>
+		<!-- Java Enterprise Edition -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-runtime-osgi</artifactId>
+			<version>${rdf4j.osgi.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet.jsp</groupId>
+					<artifactId>jsp-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>taglibs</groupId>
+					<artifactId>standard</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.core</artifactId>
+            <version>${osgi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.cmpn</artifactId>
+			<version>${osgi.compendium.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
+			<version>${spring.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+	   		<artifactId>org.apache.aries.blueprint.api</artifactId>
+	   		<version>${aries.blueprint.api.version}</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+	   		<artifactId>org.apache.aries.blueprint.core</artifactId>
+	   		<version>${aries.blueprint.core.version}</version>
+	    </dependency>
+	    <!--<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+	   		<artifactId>org.apache.aries.blueprint.spring</artifactId>
+	   		<version>${aries.blueprint.spring.version}</version>
+	    </dependency>-->
+	    
+	    <dependency>
+			<groupId>org.ops4j.pax.web</groupId>
+	   		<artifactId>pax-web-api</artifactId>
+	   		<version>${pax.web.version}</version>
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+			<classifier>uber</classifier>
+			<version>${dependency.jetty.version}</version>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!--<_wab>src/main/webapp/</_wab>
+                        <Web-ContextPath>rdf4j-server</Web-ContextPath>-->
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Export-Package>
+							ru.agentlab.rdf4j.server*;version=${project.version},
+						</Export-Package>
+						<Import-Package>
+							*
+						</Import-Package>
+						<DynamicImport-Package>
+                             *
+                        </DynamicImport-Package>
+                        <!--<Require-Capability>
+                            osgi.contract; filter:="(&amp;(osgi.contract=JavaServlet)(version>=3.1))"
+                        </Require-Capability>-->
+                        <!-- ,org.apache.servicemix.bundles.spring-webmvc -->
+                        <RequireBundle>
+                        	org.eclipse.rdf4j
+                        </RequireBundle>
+                        <Bundle-Activator>ru.agentlab.rdf4j.server.internal.Activator</Bundle-Activator>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
