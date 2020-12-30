@@ -57,7 +57,7 @@ public class ShaclValidatorTest {
 		new FileUploadConfig("../../rdf-data-expert/vocabs/rdfs.ttl", "<http://www.w3.org/2000/01/rdf-schema#>", null),
 		new FileUploadConfig("../../rdf-data-expert/vocabs/xsd.ttl", "<http://www.w3.org/2001/XMLSchema#>", null),
 	    new FileUploadConfig("../../rdf-data-expert/vocabs/xsd-ru.ttl", "<http://cpgu.kbpm.ru/ns/xsd#>", null),
-	    new FileUploadConfig("../../rdf-data-expert/vocabs/shacl.ttl", "<http://www.w3.org/ns/shacl#>", null),
+	    //new FileUploadConfig("../../rdf-data-expert/vocabs/shacl.ttl", "<http://www.w3.org/ns/shacl#>", null),
 	    new FileUploadConfig("../../rdf-data-expert/vocabs/navigation.ttl", "<http://cpgu.kbpm.ru/ns/rm/navigation#>", null),
 	    new FileUploadConfig("../../rdf-data-expert/vocabs/rm.ttl", "<http://cpgu.kbpm.ru/ns/rm/rdf#>", null),
 	    new FileUploadConfig("../../rdf-data-expert/vocabs/rm-user-types.ttl", "<http://cpgu.kbpm.ru/ns/rm/user-types#>", null),
@@ -67,7 +67,7 @@ public class ShaclValidatorTest {
 	    new FileUploadConfig("../../rdf-data-expert/vocabs/ppo-roles.ttl", "<https://agentlab.ru/onto/ppo-roles#>", null)
 	};
 	public static final FileUploadConfig[] shapesFiles = {
-		//new FileUploadConfig("../../rdf-data-expert/shapes/shacl/ppo-roles-shapes.ttl", "<https://agentlab.ru/onto/ppo-roles#>", RDF4J.SHACL_SHAPE_GRAPH),
+		new FileUploadConfig("../../rdf-data-expert/shapes/shacl/ppo-roles-shapes.ttl", "<https://agentlab.ru/onto/ppo-roles#>", RDF4J.SHACL_SHAPE_GRAPH),
 		//new FileUploadConfig("../../rdf-data-expert/shapes/shacl/shacl-shacl.ttl", "<http://www.w3.org/ns/shacl-shacl#>", RDF4J.SHACL_SHAPE_GRAPH),
 	    new FileUploadConfig("../../rdf-data-expert/shapes/shacl/xsd-shapes.ttl", "<http://cpgu.kbpm.ru/ns/xsd-shapes#>", RDF4J.SHACL_SHAPE_GRAPH),
 	    new FileUploadConfig("../../rdf-data-expert/shapes/shacl/rm/rm-shapes.ttl", "<http://cpgu.kbpm.ru/ns/rm/rdf#>", RDF4J.SHACL_SHAPE_GRAPH),
