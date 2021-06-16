@@ -159,7 +159,7 @@
 	<feature name="rdf4j-spring" version="${project.version}">
         <feature>ru.agentlab.rdf4j</feature>
         
-        <feature prerequisite="true" dependency="false">pax-web-http-whiteboard</feature>
+        <feature prerequisite="true" dependency="false" version="${pax.web.version}">pax-web-http-whiteboard</feature>
     	<!-- Web-Console -->
 		<feature prerequisite="true" dependency="false">webconsole</feature>
 		<feature prerequisite="true" dependency="false">war</feature>
