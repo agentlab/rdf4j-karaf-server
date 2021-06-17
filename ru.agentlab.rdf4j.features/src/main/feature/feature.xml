@@ -12,6 +12,7 @@
  -->
 <features name="ru.agentlab.rdf4j-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
+
     <feature name="pax-logging-log4j2-extra" version="${pax.logging.version}">
     	<feature dependency="true">jackson-core</feature>
         <bundle start-level="8">mvn:org.ops4j.pax.logging/pax-logging-log4j2-extra/${pax.logging.version}</bundle>
@@ -19,7 +20,7 @@
 
     <feature name="org.eclipse.rdf4j" version="${rdf4j.osgi.version}">
         <feature prerequisite="true" dependency="false">wrap</feature>
-        
+
         <!-- надо перевести на pax-logging -->
         <bundle dependency="true">mvn:org.slf4j/slf4j-api/${slf4j.version}</bundle>
         <!--<bundle dependency="true">mvn:org.slf4j/slf4j-jdk14/${slf4j.version}</bundle>-->
@@ -28,13 +29,13 @@
         <bundle dependency="true">mvn:org.slf4j/slf4j-simple/${slf4j.version}</bundle>
         <bundle dependency="true">mvn:ch.qos.logback/logback-classic/1.1.11</bundle>
 		<bundle dependency="true">mvn:ch.qos.logback/logback-core/1.1.11</bundle>
-		
+
 		<!-- надо бы удалить и перевести на pax-logging, но новый pax-logging не экспортит log4j.core -->
 		<bundle dependency="true">mvn:org.apache.logging.log4j/log4j-core/2.8.2</bundle>
-		
-		
+
+
         <bundle dependency="true">mvn:org.eclipse.rdf4j/rdf4j-runtime-osgi/${rdf4j.osgi.version}</bundle>
-        
+
         <feature dependency="true">jackson-core</feature>
 
         <bundle dependency="true">mvn:commons-cli/commons-cli/${commons.cli.version}</bundle>
@@ -65,7 +66,7 @@
 
         <bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.datatype/jackson-datatype-jdk8/${jackson.version}</bundle>
-        
+
         <!-- from CODA -->
 		<bundle dependency="true">wrap:mvn:io.sgr/s2-geometry-library-java/1.0.1</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-analyzers-common/${lucene.version}_1</bundle>
@@ -126,7 +127,7 @@
 		<bundle dependency="true">mvn:io.netty/netty-resolver/${netty.version}</bundle>
 		<bundle dependency="true">mvn:io.netty/netty-transport/${netty.version}</bundle>
 		<bundle dependency="true">wrap:mvn:com.github.spullara.mustache.java/compiler/0.9.3</bundle><!-- WTF -->
-		
+
 		<!-- Support for Elastic Search -->
 		<bundle dependency="true">wrap:mvn:org.noggit/noggit/0.8</bundle><!-- WTF -->
 		<bundle dependency="true">mvn:org.yaml/snakeyaml/1.26</bundle>
@@ -136,34 +137,34 @@
     </feature>
 
 	<repository>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</repository>
-	
+    <repository>mvn:org.apache.karaf.features/spring-legacy/${karaf.version}/xml/features</repository>
+
 	<!-- RDF4J OSGi DS components without JAX-RS -->
 	<feature name="ru.agentlab.rdf4j" version="${project.version}">
         <feature>org.eclipse.rdf4j</feature>
     	<feature>karaf-scr</feature>
     </feature>
-    
+
     <feature version="${jackson.version}" name="jackson-core">
     	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
     	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
     	<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
     </feature>
-    
+
     <feature name="karaf-scr" version="${project.version}">
     	<feature>obr</feature>
     	<feature>scr</feature>
     	<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_3</bundle>
     </feature>
 
-	<!--<repository>mvn:org.apache.karaf.features/spring-legacy/${karaf.version}/xml/features</repository>-->	
 	<feature name="rdf4j-spring" version="${project.version}">
         <feature>ru.agentlab.rdf4j</feature>
-        
+
         <feature prerequisite="true" dependency="false" version="${pax.web.version}">pax-web-http-whiteboard</feature>
     	<!-- Web-Console -->
 		<feature prerequisite="true" dependency="false">webconsole</feature>
 		<feature prerequisite="true" dependency="false">war</feature>
-		
+
         <feature version="${spring.version}" dependency="false">spring-web</feature>
         <feature version="${spring.version}" dependency="false">spring-tx</feature>
         <feature version="${spring.version}" dependency="false">spring-aspects</feature>
@@ -171,17 +172,17 @@
         <!--<feature prerequisite="true" dependency="false">blueprint-web</feature>-->
         <feature prerequisite="true" dependency="false">aries-blueprint-spring</feature>
         <!--<bundle dependency="true">mvn:ch.sourcepond.spring/spring-web-blueprint/0.4.1</bundle>-->
-		
+
 		<!--<feature version="[4,5)">aries-blueprint</feature>
-		
+
 		<feature prerequisite="true" dependency="false">pax-war</feature>
-		
+
 		<feature version="[3.1,4)" dependency="true">spring</feature>
 		<feature version="[3.1,4)" dependency="true">spring-web</feature>
 		<feature version="[3.1,4)" dependency="true">spring-tx</feature>
 		<feature version="[1.2.1,2)" dependency="true">spring-dm</feature>
 		<feature version="[1.2.1,2)" dependency="true">spring-dm-web</feature>-->
-        
+
         <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.server/${project.version}</bundle>
         <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.sail.shacl/${project.version}</bundle>
     </feature>
