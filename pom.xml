@@ -128,7 +128,7 @@
             and then modify the files org.ops4j.pax.logging.cfg, org.ops4j.pax.web.cfg,
             org.apache.karaf.features.cfg; additionally, update the version of Karaf
             indicated in branding.properties (module st-console) -->
-        <karaf.version>4.3.0</karaf.version>
+        <karaf.version>4.3.2</karaf.version>
 
         <maven-bundle-plugin.version>5.1.2</maven-bundle-plugin.version>
         <osgi.version>7.0.0</osgi.version>
@@ -153,7 +153,7 @@
 
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.13</httpcore.version>
-        <spring.version>5.2.9.RELEASE_1</spring.version>
+        <spring.version>5.2.13.RELEASE_1</spring.version>
 
         <spatial4j.version>0.8</spatial4j.version>
         <jts.core.version>1.18.1</jts.core.version>
@@ -173,7 +173,7 @@
         <opencsv.version>4.6</opencsv.version>
 
         <dependency.jetty.version>9.4.31.v20200723</dependency.jetty.version>
-        <pax.web.version>7.3.9</pax.web.version>
+        <pax.web.version>7.3.16</pax.web.version>
         <cxf.version>3.3.7</cxf.version>
         <aries.blueprint.api.version>1.0.1</aries.blueprint.api.version>
         <aries.blueprint.core.version>1.10.2</aries.blueprint.core.version>
