@@ -287,7 +287,7 @@
     </build>
     <distributionManagement>
         <snapshotRepository>
-            <id>agentlab</id>
+            <id>agentlab-snapshots</id>
             <url>https://nexus.agentlab.ru/nexus/repository/maven-snapshots</url>
         </snapshotRepository>
         <repository>
@@ -314,7 +314,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <id>agentlab</id>
+            <id>agentlab-snapshots</id>
             <url>https://nexus.agentlab.ru/nexus/repository/maven-snapshots</url>
         </repository>
         <repository>
