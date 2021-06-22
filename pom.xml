@@ -285,6 +285,16 @@
             </plugins>
         </pluginManagement>
     </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>agentlab</id>
+            <url>https://nexus.agentlab.ru/nexus/repository/maven-snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>agentlab-releases</id>
+            <url>https://nexus.agentlab.ru/nexus/repository/maven-releases</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <repository>
