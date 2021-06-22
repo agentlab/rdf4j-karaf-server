@@ -11,8 +11,5 @@ bin
 
 publish.bat
 
-ru.agentlab.rdf4j.parent.iml
-ru.agentlab.rdf4j.cmpn.iml
-ru.agentlab.rdf4j.features.iml
-ru.agentlab.rdf4j.jaxrs.iml
-ru.agentlab.rdf4j.jaxrs.tests.iml
+*.iml
+.flattened-pom.xml
