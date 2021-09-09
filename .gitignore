@@ -2,9 +2,7 @@
 
 # production
 build
-distrib
 target
-bin
 
 # misc
 .DS_Store

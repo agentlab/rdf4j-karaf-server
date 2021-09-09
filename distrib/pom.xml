@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.agentlab.rdf4j</groupId>
+        <artifactId>ru.agentlab.rdf4j.parent</artifactId>
+        <version>3.4.3-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>distrib</artifactId>
+    <packaging>karaf-assembly</packaging>
+    
+    <repositories>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+    
+    <dependencies>
+        <!-- scope is compile so all features (there is only one) are installed into startup.properties and the feature repo itself is not added in etc/org.apache.karaf.features.cfg file -->
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>framework</artifactId>
+            <version>${karaf.version}</version>
+            <type>kar</type>
+        </dependency>
+		<!-- scope is runtime so the feature repo is listed in etc/org.apache.karaf.features.cfg file, and features will installed into the system directory -->
+        <!--<dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>framework</artifactId>
+			<version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>standard</artifactId>
+			<version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>enterprise</artifactId>
+			<version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.agentlab.rdf4j</groupId>
+            <artifactId>ru.agentlab.rdf4j.features</artifactId>
+            <version>3.1.2-SNAPSHOT</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+		<resources>
+			<resource>
+                <directory>src/main/distribution</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+			<!--<resource>
+				<directory>${project.basedir}/src/main/filtered-resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>-->
+		</resources>
+
+        <plugins>
+			<!--<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>filter</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>resources</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
+
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<version>${karaf.version}</version>
+				<extensions>true</extensions>
+                <configuration>
+                    <!--<startupFeatures>
+                        <feature>eventadmin</feature>
+                    </startupFeatures>-->
+                    <!--<installedBundles>
+                        <installedBundle>mvn:commons-lang/commons-lang/2.6</installedBundle>
+                    </installedBundles>-->
+                    <bootFeatures>
+                        <feature>bundle</feature>
+                        <feature>config</feature>
+                        <feature>diagnostic</feature>
+                        <feature>feature</feature>
+                        <feature>jaas</feature>
+                        <feature>shell</feature>
+                        <feature>log</feature>
+                        <feature>management</feature>
+                        <feature>package</feature>
+                        <feature>shell-compat</feature>
+                        <feature>ssh</feature>
+                        <feature>system</feature>
+                        <feature>wrap</feature>
+						
+						<feature>kar</feature>
+						<feature>deployer</feature>
+						<feature>service</feature>
+						<feature>eventadmin</feature>
+						<feature>instance</feature>
+						
+						<!--<feature>pax-logging-log4j2-extra</feature>-->
+						<feature>ru.agentlab.rdf4j.jaxrs</feature>
+                    </bootFeatures>
+					<!--<archiveZip>false</archiveZip>-->
+                    <!--<installedFeatures>
+                        <feature>wrapper</feature>
+                    </installedFeatures>-->
+                </configuration>
+			</plugin>
+        </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.apache.karaf.tooling
+        								</groupId>
+        								<artifactId>
+        									karaf-maven-plugin
+        								</artifactId>
+        								<versionRange>
+        									[4.3.0,)
+        								</versionRange>
+        								<goals>
+        									<goal>assembly</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<execute/>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

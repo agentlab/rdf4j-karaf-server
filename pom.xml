@@ -18,8 +18,8 @@
         <module>ru.agentlab.rdf4j.server</module>
         <module>ru.agentlab.rdf4j.features</module>
         <!--<module>ru.agentlab.rdf4j.jaxrs.tests.helpers</module>
-        <module>ru.agentlab.rdf4j.jaxrs.tests</module>
-        <module>distrib</module>-->
+        <module>ru.agentlab.rdf4j.jaxrs.tests</module>-->
+        <module>distrib</module>
     </modules>
 
     <dependencyManagement>
