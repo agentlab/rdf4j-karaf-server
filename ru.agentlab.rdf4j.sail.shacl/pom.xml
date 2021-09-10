@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>ru.agentlab.rdf4j</groupId>
 		<artifactId>ru.agentlab.rdf4j.parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>4.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>ru.agentlab.rdf4j.sail.shacl</artifactId>
@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.10</version>
+			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

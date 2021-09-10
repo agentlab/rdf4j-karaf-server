@@ -130,14 +130,14 @@
 
 		<!-- Support for Elastic Search -->
 		<bundle dependency="true">wrap:mvn:org.noggit/noggit/0.8</bundle><!-- WTF -->
-		<bundle dependency="true">mvn:org.yaml/snakeyaml/1.26</bundle>
+		<bundle dependency="true">mvn:org.yaml/snakeyaml/${snakeyaml.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-smile/${jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/${jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.ning/compress-lzf/1.0.4</bundle><!-- WTF -->
     </feature>
 
 	<repository>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</repository>
-    <repository>mvn:org.apache.karaf.features/spring-legacy/${karaf.version}/xml/features</repository>
+    <repository>mvn:org.apache.karaf.features/spring/${karaf.version}/xml/features</repository>
 
 	<!-- RDF4J OSGi DS components without JAX-RS -->
 	<feature name="ru.agentlab.rdf4j" version="${project.version}">
@@ -171,17 +171,6 @@
         <feature version="${spring.version}" dependency="false">spring-instrument</feature>
         <!--<feature prerequisite="true" dependency="false">blueprint-web</feature>-->
         <feature prerequisite="true" dependency="false">aries-blueprint-spring</feature>
-        <!--<bundle dependency="true">mvn:ch.sourcepond.spring/spring-web-blueprint/0.4.1</bundle>-->
-
-		<!--<feature version="[4,5)">aries-blueprint</feature>
-
-		<feature prerequisite="true" dependency="false">pax-war</feature>
-
-		<feature version="[3.1,4)" dependency="true">spring</feature>
-		<feature version="[3.1,4)" dependency="true">spring-web</feature>
-		<feature version="[3.1,4)" dependency="true">spring-tx</feature>
-		<feature version="[1.2.1,2)" dependency="true">spring-dm</feature>
-		<feature version="[1.2.1,2)" dependency="true">spring-dm-web</feature>-->
 
         <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.server/${project.version}</bundle>
         <bundle>mvn:ru.agentlab.rdf4j/ru.agentlab.rdf4j.sail.shacl/${project.version}</bundle>

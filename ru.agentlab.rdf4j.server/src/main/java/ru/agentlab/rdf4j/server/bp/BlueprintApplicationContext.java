@@ -89,6 +89,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.core.metrics.ApplicationStartup;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
@@ -1089,6 +1090,30 @@ public final class BlueprintApplicationContext implements WebApplicationContext,
 
 	@Override
 	public Class<?> getType(String name, boolean allowFactoryBeanInit) throws NoSuchBeanDefinitionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> ObjectProvider<T> getBeanProvider(Class<T> requiredType, boolean allowEagerInit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> ObjectProvider<T> getBeanProvider(ResolvableType requiredType, boolean allowEagerInit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setApplicationStartup(ApplicationStartup applicationStartup) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ApplicationStartup getApplicationStartup() {
 		// TODO Auto-generated method stub
 		return null;
 	}

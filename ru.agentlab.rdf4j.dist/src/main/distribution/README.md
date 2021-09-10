@@ -75,13 +75,6 @@ In case you need log4j2 JSON logger, install feature `feature:install pax-loggin
 
 For further REST API interface see https://rdf4j.org/documentation/reference/rest-api/
 
-## Data folder
-
-Server stores repositories data inside home user folder on Linux and Windows
-See [RDF4J Application Directory Configuration](https://rdf4j.org/documentation/tools/application-directory/)
-
-You can override this.
-
 ## Development
 
 * `bundle:watch *` -- Karaf should monitor local maven repository and redeploy rebuilded bundles automatically
