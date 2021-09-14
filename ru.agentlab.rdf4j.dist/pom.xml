@@ -6,7 +6,7 @@
     <parent>
         <groupId>ru.agentlab.rdf4j</groupId>
         <artifactId>ru.agentlab.rdf4j.parent</artifactId>
-        <version>4.1.0-SNAPSHOT</version>
+        <version>5.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ru.agentlab.rdf4j.dist</artifactId>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>ru.agentlab.rdf4j</groupId>
             <artifactId>ru.agentlab.rdf4j.features</artifactId>
-            <version>4.1.0-SNAPSHOT</version>
+            <version>5.0.0-SNAPSHOT</version>
             <classifier>features</classifier>
             <type>xml</type>
             <scope>runtime</scope>

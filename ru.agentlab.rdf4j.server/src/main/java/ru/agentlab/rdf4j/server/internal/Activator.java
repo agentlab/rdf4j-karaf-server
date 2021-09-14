@@ -23,6 +23,12 @@ public class Activator implements BundleActivator {
 		this.bundleContext = context;
 		blueprintApplicationContext = new BlueprintApplicationContext(bundleContext);
        	blueprintApplicationContext.start();
+       	
+       	ClassLoader myClassClassLoader = Activator.class.getClassLoader();
+       	System.out.println("ClassLoader of BasicOneActivator is " + myClassClassLoader);
+       	
+       	Class<?> classA = myClassClassLoader.loadClass("org.eclipse.rdf4j.repository.config.RepositoryConfigException");
+       	System.out.println("ClassLoader of BasicOneActivator is " + classA);
 	}
 
 	@Override

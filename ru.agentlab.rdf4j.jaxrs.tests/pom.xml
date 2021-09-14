@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>ru.agentlab.rdf4j</groupId>
 		<artifactId>ru.agentlab.rdf4j.parent</artifactId>
-		<version>4.1.0-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>ru.agentlab.rdf4j.jaxrs.tests</artifactId>
@@ -39,12 +39,12 @@
 		<dependency>
             <groupId>ru.agentlab.rdf4j</groupId>
             <artifactId>ru.agentlab.rdf4j.jaxrs</artifactId>
-            <version>4.1.0-SNAPSHOT</version>
+            <version>5.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
         	<groupId>ru.agentlab.rdf4j</groupId>
         	<artifactId>ru.agentlab.rdf4j.cmpn</artifactId>
-        	<version>4.1.0-SNAPSHOT</version>
+        	<version>5.0.0-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>ru.agentlab.rdf4j</groupId>
             <artifactId>ru.agentlab.rdf4j.jaxrs.tests.helpers</artifactId>
-            <version>3.1.2-SNAPSHOT</version>
+            <version>5.0.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <!-- Define the Apache Karaf version to download and use for the test -->
